@@ -51,7 +51,7 @@ body {
 
 .form {
     background: var(--colorWhite);
-    padding: 1rem;
+    padding: 2rem 1rem;
     border-radius: .5rem;
     box-shadow: 1px 1px 5px  rgb(128, 128, 128, .3);
 }
@@ -95,4 +95,72 @@ body {
     cursor: pointer;
     margin-block: 1rem;
     box-shadow: inset -2px -2px 2px 1px #717395;
+}
+
+
+/* media queries */
+
+@media (width >= 400px) {
+    .main {
+        padding-block: 2rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .containerTitle,
+    .description {
+        font-size: 1.5rem;
+    }
+
+    .form {
+        max-inline-size: 500px;
+        margin-inline: auto;
+        padding: 2rem;
+    }
+}
+
+@media (width >= 768px) {
+
+    .containerTitle,
+    .description {
+        font-size: 1.25rem;
+    }
+
+    .content {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .container {
+        flex: 1;
+    }
+
+    .form {
+        max-inline-size: 100%;
+        padding-inline: 1rem;
+    }
+}
+
+@media (width >= 1024px) {
+    .title {
+        font-size: 3rem;
+        margin-block-end: 2rem;
+    }
+
+    .form {
+        max-inline-size: 80%;
+        padding: 2rem;
+    }
+}
+
+@media (width > 1366px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .title .color {
+        display: block;
+    }
 }

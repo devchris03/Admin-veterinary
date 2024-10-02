@@ -9,38 +9,40 @@
 <body>
     <main class="main">
         <h1 class="title">Seguimiento Pacientes <span class="color">Veterinaria</span></h1>
-        <section class="container">
-            <h2 class="containerTitle">Seguimiento Pacientes</h2>
-            <p class="description">Añade pacientes y <span class="color">Administralos</span></p>
-            <form class="form" id="form">
-                <div class="camp">
-                    <label for="paciente" class="label">Nombre del paciente:</label>
-                    <input class="input" type="text"  id="paciente" placeholder="Nombre de la mascota">
-                </div> <!-- campo -->
-                <div class="camp">
-                    <label for="propietario" class="label">Nombre del propietario:</label>
-                    <input class="input" type="text"  id="propietario" placeholder="Nombre del dueño o apoderado">
-                </div> <!-- campo -->
-                <div class="camp">
-                    <label for="email" class="label">Email:</label>
-                    <input class="input" type="email" id="email" placeholder="Email de contacto">
-                </div> <!-- campo -->
-                <div class="camp">
-                    <label for="fecha" class="label">Fecha alta:</label>
-                    <input class="input" type="date" id="fecha">
-                </div> <!-- campo -->
-                <div class="camp">
-                    <label for="sintomas" class="label">Síntomas:</label>
-                    <textarea class="textarea"  id="sintomas" placeholder="Sintomas del paciente"  rows="5"></textarea>
-                </div> <!-- campo -->
-                <input type="submit" value="Registrar paciente" class="submit" id="submit">
-            </form>
-        </section> <!-- section fomr -->
-        <section class="container">
-            <h2 class="containerTitle">Listado de pacientes</h2>
-            <p class="description">Administra tus <span class="color">Pacientes y Citas</span></p>
-            <ul class="list"></ul>
-        </section> <!-- section list -->
+        <div class="content">
+            <section class="container">
+                <h2 class="containerTitle">Seguimiento Pacientes</h2>
+                <p class="description">Añade pacientes y <span class="color">Administralos</span></p>
+                <form class="form" id="form">
+                    <div class="camp">
+                        <label for="paciente" class="label">Nombre del paciente:</label>
+                        <input class="input" type="text"  id="paciente" placeholder="Nombre de la mascota">
+                    </div> <!-- campo -->
+                    <div class="camp">
+                        <label for="propietario" class="label">Nombre del propietario:</label>
+                        <input class="input" type="text"  id="propietario" placeholder="Nombre del dueño o apoderado">
+                    </div> <!-- campo -->
+                    <div class="camp">
+                        <label for="email" class="label">Email:</label>
+                        <input class="input" type="email" id="email" placeholder="Email de contacto">
+                    </div> <!-- campo -->
+                    <div class="camp">
+                        <label for="fecha" class="label">Fecha alta:</label>
+                        <input class="input" type="date" id="fecha">
+                    </div> <!-- campo -->
+                    <div class="camp">
+                        <label for="sintomas" class="label">Síntomas:</label>
+                        <textarea class="textarea"  id="sintomas" placeholder="Sintomas del paciente"  rows="5"></textarea>
+                    </div> <!-- campo -->
+                    <input type="submit" value="Registrar paciente" class="submit" id="submit">
+                </form>
+            </section> <!-- section fomr -->
+            <section class="container">
+                <h2 class="containerTitle">Listado de pacientes</h2>
+                <p class="description">Administra tus <span class="color">Pacientes y Citas</span></p>
+                <ul class="list"></ul>
+            </section> <!-- section list -->
+        </div> <!-- content -->
     </main>
 </body>
 </html>

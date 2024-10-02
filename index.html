@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Veterinary</title>
+</head>
+<body>
+    <main class="main">
+        <h1 class="title">Seguimiento Pacientes <span class="color">Veterinaria</span></h1>
+        <section class="container">
+            <h2 class="containerTitle">Seguimiento Pacientes</h2>
+            <p class="description">Añade pacientes y <span class="color">Administralos</span></p>
+            <form class="form" id="form">
+                <div class="camp">
+                    <label for="paciente" class="label">Nombre del paciente:</label>
+                    <input type="text"  id="paciente" placeholder="Nombre de la mascota">
+                </div> <!-- campo -->
+                <div class="camp">
+                    <label for="propietario" class="label">Nombre del propietario:</label>
+                    <input type="text"  id="propietario" placeholder="Nombre del dueño o apoderado de la mascota">
+                </div> <!-- campo -->
+                <div class="camp">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Email de contacto">
+                </div> <!-- campo -->
+                <div class="camp">
+                    <label for="fecha" class="label">Fecha alta:</label>
+                    <input type="date" id="fecha">
+                </div> <!-- campo -->
+                <div class="camp">
+                    <label for="sintomas" class="label">Síntomas:</label>
+                    <textarea  id="sintomas" placeholder="Sintomas del paciente"  rows="5"></textarea>
+                </div> <!-- campo -->
+            </form>
+        </section> <!-- section fomr -->
+        <section class="container">
+            <h2 class="containerTitle">Listado de pacientes</h2>
+            <p class="description">Administra tus <span class="color">Pacientes y Citas</span></p>
+            <ul class="list"></ul>
+        </section> <!-- section list -->
+    </main>
+</body>
+</html>

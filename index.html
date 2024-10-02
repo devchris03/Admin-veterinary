@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Admin Veterinary</title>
 </head>
 <body>
@@ -14,24 +15,25 @@
             <form class="form" id="form">
                 <div class="camp">
                     <label for="paciente" class="label">Nombre del paciente:</label>
-                    <input type="text"  id="paciente" placeholder="Nombre de la mascota">
+                    <input class="input" type="text"  id="paciente" placeholder="Nombre de la mascota">
                 </div> <!-- campo -->
                 <div class="camp">
                     <label for="propietario" class="label">Nombre del propietario:</label>
-                    <input type="text"  id="propietario" placeholder="Nombre del dueño o apoderado de la mascota">
+                    <input class="input" type="text"  id="propietario" placeholder="Nombre del dueño o apoderado">
                 </div> <!-- campo -->
                 <div class="camp">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" placeholder="Email de contacto">
+                    <label for="email" class="label">Email:</label>
+                    <input class="input" type="email" id="email" placeholder="Email de contacto">
                 </div> <!-- campo -->
                 <div class="camp">
                     <label for="fecha" class="label">Fecha alta:</label>
-                    <input type="date" id="fecha">
+                    <input class="input" type="date" id="fecha">
                 </div> <!-- campo -->
                 <div class="camp">
                     <label for="sintomas" class="label">Síntomas:</label>
-                    <textarea  id="sintomas" placeholder="Sintomas del paciente"  rows="5"></textarea>
+                    <textarea class="textarea"  id="sintomas" placeholder="Sintomas del paciente"  rows="5"></textarea>
                 </div> <!-- campo -->
+                <input type="submit" value="Registrar paciente" class="submit" id="submit">
             </form>
         </section> <!-- section fomr -->
         <section class="container">

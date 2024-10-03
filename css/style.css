@@ -4,6 +4,7 @@
     --colorBlack: #060609;
     --colorGray: #d8d2ea;
     --colorWhite: #f9f9f9;
+    --colorRed: #ff2e29;
 }
 
 /* estilos generales */
@@ -96,6 +97,15 @@ body {
     margin-block: 1rem;
     box-shadow: inset -2px -2px 2px 1px #717395;
 }
+
+.alert {
+    color: var(--colorRed);
+    margin-block: .25rem;
+}
+
+.alertCamp {
+    border: 1px solid var(--colorRed);
+} 
 
 
 /* media queries */

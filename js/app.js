@@ -1,75 +1,92 @@
-// ----------------------- VARIABLES ----------------------- 
+// -------------------- VARIABLES --------------------
 const form = document.querySelector('#form');
-
-// ----------------------- EVENTOS -----------------------
-loadEvents();
+// -------------------- EVENTOS --------------------
+loadEvents()
 function loadEvents() {
     form.addEventListener('submit', validate)
 }
 
-// ----------------------- CLASSES -----------------------
+// -------------------- CLASSES --------------------
 class Data {
-    constructor(paciente, propietario, email, fecha, sintomas) {
-        this.paciente = paciente;
-        this.propietario = propietario;
+    constructor(patient, owner, email, date, symptoms) {
+        this.patient = patient;
+        this.owner = owner;
         this.email = email;
-        this.fecha = fecha;
-        this.sintomas = sintomas;
+        this.date = date;
+        this.symptoms = symptoms;
     }
 }
 
 
 class UI {
-    showAlert(message, reference) {
+    showAlert(type, message) {
         const alert = document.createElement('p');
         alert.classList.add('alert');
         alert.textContent = message;
 
-        // verifica si existe alerta
-        const exist = reference.parentElement.querySelector('.alert');
+        if(type === 'error') {
+            alert.classList.add('error');
+        } else {
+            alert.classList.add('success');
+        }
+
+        const container = document.querySelector('.container:first-child');
+
+        // elimina alerta existente
+        const exist = container.querySelector('.alert');
         if(exist) {
-            exist.remove()
+            exist.remove();
         }
 
         // inserta alerta
-        reference.parentElement.appendChild(alert);
-        reference.classList.add('alertCamp')
-        
+        container.insertBefore(alert, form);
 
+        // muestra alerta durante 3 segundos
+        setTimeout(() => {
+            alert.remove();
+        }, 3000)
     }
 }
 
-// ----------------------- INSTANCIAS -----------------------
-let dataList;
+// -------------------- INSTANCIAS --------------------
 const interface = new UI;
-// ----------------------- FUNCIONES ----------------------- 
+let information;
 
-// valida los campos
+// -------------------- FUNCIONES --------------------
+
+// valida formulario
 function validate(event) {
     event.preventDefault();
 
-    const paciente = form.querySelector('#paciente');
-    const propietario = form.querySelector('#propietario');
+    const patient = form.querySelector('#paciente');
+    const owner = form.querySelector('#propietario');
     const email = form.querySelector('#email');
-    const fecha = form.querySelector('#fecha');
-    const sintomas = form.querySelector('#sintomas');
+    const date = form.querySelector('#fecha');
+    const symptoms = form.querySelector('#sintomas');
 
-    const campList = [paciente, propietario, email, fecha, sintomas];
-
-    dataList = new Data(paciente.value, propietario.value, email.value, fecha.value, sintomas.value);
-
-    // verificar si existe algun campo vacio
-    for(const data in dataList) {
-        if(dataList[data] === '') {
-            
-            // busca coincidir con el campo 
-            campList.forEach(camp => {
-                if(camp.id == data) {
-                    
-                    // muestra  alerta
-                    interface.showAlert(`El campo ${data} es obligatorio`, camp)
-                }
-            })
-        }
+    // muestra alerta de error
+    if(patient.value.trim() === '' || owner.value.trim() === '' || email.value.trim() === '' || date.value === '' || symptoms.value.trim() === '') {
+        interface.showAlert('error', 'Todos los campos son obligatorios.')
+        return;
+    } 
+    
+    if(!/^[a-zA-Z]{4,}(?: [a-zA-Z]+){0,2}$/.test(owner.value.trim())) {
+        interface.showAlert('error', 'El nombre ingresado no es válido')
+        return;
     }
+
+    if(!/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/.test(email.value.trim())) {
+        interface.showAlert('error', 'El email ingresado no es válido')
+        return;
+    }
+    
+    // muestra alerta de éxito
+    interface.showAlert('success', 'Paciente registrado')
+
+    //limpia formulario
+    form.reset();
+
+    information = new Data(patient.value.trim(), owner.value.trim(), email.value.trim(), date.value, symptoms.value.trim());
+
+    
 }

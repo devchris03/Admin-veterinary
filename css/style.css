@@ -48,6 +48,15 @@ body {
     margin-block: .5rem 2rem;
 }
 
+.button {
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    color: var(--colorWhite);
+}
+
 
 /* form */
 
@@ -86,18 +95,13 @@ body {
     outline: 2px solid var(--colorPrimary);
 }
 
+
 .submit {
-    inline-size: 100%;
-    padding: .5rem;
-    background: var(--colorPrimary);
-    color: var(--colorWhite);
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: .5rem;
-    border: none;
-    cursor: pointer;
     margin-block: 1rem;
+    inline-size: 100%;
+    background: var(--colorPrimary);
     box-shadow: inset -2px -2px 2px 1px #717395;
+    padding: .5rem;
 }
 
 
@@ -117,6 +121,59 @@ body {
 
 .success {
     background: var(--colorGreen);
+}
+
+/* lista */
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-block-size: 600px;
+    overflow-y: auto;
+}
+
+.appointment {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    background: var(--colorWhite);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.appointment > p {
+    margin: 0;
+}
+
+.strong {
+    color: var(--colorPrimary);
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.edit,
+.remove {
+    inline-size: 100%;
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem;
+}
+
+.edit {
+    background: var(--colorPrimary);
+}
+
+.remove {
+    background: var(--colorRed);
 }
 
 
@@ -144,6 +201,11 @@ body {
     .alert {
         margin-inline: auto;
         max-inline-size: 500px;
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 2rem;
     }
 }
 

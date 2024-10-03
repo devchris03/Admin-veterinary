@@ -58,8 +58,18 @@ class UI {
         }, 3000)
     }
 
+    cleanList() {
+        while(list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+    }
+
 
     showList (dataList) {
+        const list = document.querySelector('#list');
+
+        this.cleanList();
+
         dataList.forEach(data => {
             const appointment = document.createElement('div');
             appointment.classList.add('appointment');
@@ -113,7 +123,6 @@ class UI {
             appointment.appendChild(buttons);
 
             //inserta lista en el html 
-            const list = document.querySelector('#list');
             list.appendChild(appointment);
         })
     }

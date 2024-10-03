@@ -1,5 +1,6 @@
 // -------------------- VARIABLES --------------------
 const form = document.querySelector('#form');
+
 // -------------------- EVENTOS --------------------
 loadEvents()
 function loadEvents() {
@@ -8,12 +9,22 @@ function loadEvents() {
 
 // -------------------- CLASSES --------------------
 class Data {
-    constructor(patient, owner, email, date, symptoms) {
-        this.patient = patient;
-        this.owner = owner;
-        this.email = email;
-        this.date = date;
-        this.symptoms = symptoms;
+    constructor() {
+        this.dataList = [];
+    }
+
+    list(patient, owner, email, date, symptoms) {
+
+        const Obj = {
+            patient: patient,
+            owner: owner,
+            email: email,
+            date: date,
+            symptoms: symptoms,
+            id: Date.now(),
+        }
+
+        this.dataList = [...this.dataList, Obj];
     }
 }
 
@@ -46,11 +57,71 @@ class UI {
             alert.remove();
         }, 3000)
     }
+
+
+    showList (dataList) {
+        dataList.forEach(data => {
+            const appointment = document.createElement('div');
+            appointment.classList.add('appointment');
+            appointment.id = data.id;
+
+            // crea html para mostar información de la cita
+            const patient = document.createElement('p');
+            patient.innerHTML = `<span class="strong">Paciente:</span> <span>${data.patient}</span>`;
+            
+            const owner = document.createElement('p');
+            owner.innerHTML = `<span class="strong">Propietario:</span> <span>${data.owner}</span>`;
+            
+            const email = document.createElement('p');
+            email.innerHTML = `<span class="strong">Email:</span> <span>${data.email}</span>`;
+            
+            const date = document.createElement('p');
+            date.innerHTML = `<span class="strong">Fecha:</span> <span>${data.date}</span>`;
+            
+            const symptoms = document.createElement('p');
+            symptoms.innerHTML = `<span class="strong">Sintomas:</span> <span>${data.symptoms}</span>`;
+        
+
+            appointment.appendChild(patient);
+            appointment.appendChild(owner);
+            appointment.appendChild(email);
+            appointment.appendChild(date);
+            appointment.appendChild(symptoms);
+
+
+            // crea boton editar
+            const edit = document.createElement('button');
+            edit.ariaLabel = "Editar Cita";
+            edit.classList.add('edit', 'button');
+            edit.innerHTML = `<span>Editar</span> <img src="./img/edit.svg">`;
+            
+            // crea boton eliminar
+            const remove = document.createElement('button');
+            remove.ariaLabel = "Eliminar Cita";
+            remove.classList.add('remove', 'button');
+            remove.innerHTML = `<span>Eliminar</span> <img src="./img/delete.svg">`;
+
+            // crea contenedor de botones
+            const buttons = document.createElement('div');
+            buttons.classList.add('buttons');
+
+            // inserta botones en el contener de botones
+            buttons.appendChild(edit);
+            buttons.appendChild(remove);
+
+            // inserta contener de botones al elemento principal
+            appointment.appendChild(buttons);
+
+            //inserta lista en el html 
+            const list = document.querySelector('#list');
+            list.appendChild(appointment);
+        })
+    }
 }
 
 // -------------------- INSTANCIAS --------------------
 const interface = new UI;
-let information;
+const information = new Data;
 
 // -------------------- FUNCIONES --------------------
 
@@ -83,10 +154,13 @@ function validate(event) {
     // muestra alerta de éxito
     interface.showAlert('success', 'Paciente registrado')
 
+    information.list(patient.value.trim(), owner.value.trim(), email.value.trim(), date.value.trim(), symptoms.value.trim());
+
     //limpia formulario
     form.reset();
 
-    information = new Data(patient.value.trim(), owner.value.trim(), email.value.trim(), date.value, symptoms.value.trim());
+    // mustra citas
+    interface.showList(information.dataList)
 
     
 }

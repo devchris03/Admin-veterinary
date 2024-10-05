@@ -114,6 +114,7 @@ class Data {
             remove.ariaLabel = "Eliminar Cita";
             remove.classList.add('remove', 'button');
             remove.innerHTML = `<span>Eliminar</span> <img src="./img/delete.svg">`;
+            remove.onclick = () => this.remove(data.id);
 
             // crea contenedor de botones
             const buttons = document.createElement('div');
@@ -129,6 +130,11 @@ class Data {
             //inserta lista en el html 
             list.appendChild(appointment);
         })
+    }
+
+    remove(id) {
+        this.listAppointments = this.listAppointments.filter(data => data.id !== id);
+        this.showList();
     }
 }
 

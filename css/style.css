@@ -176,6 +176,12 @@ body {
     background: var(--colorRed);
 }
 
+.empty {
+    text-align: center;
+    color: var(--colorPrimary);
+    font-weight: 700;
+}
+
 
 /* media queries */
 

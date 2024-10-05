@@ -130,6 +130,13 @@ class Data {
             //inserta lista en el html 
             list.appendChild(appointment);
         })
+
+        if(this.listAppointments.length === 0) {
+            const empty = document.createElement('p');
+            empty.classList.add('empty');
+            empty.textContent = 'No hay pacientes';
+            list.appendChild(empty);
+        }
     }
 
     remove(id) {

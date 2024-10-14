@@ -133,7 +133,7 @@ body {
     overflow-y: auto;
 }
 
-.appointment {
+.ticket {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -143,7 +143,7 @@ body {
     border-radius: .5rem;
 }
 
-.appointment > p {
+.ticket > p {
     margin: 0;
 }
 
